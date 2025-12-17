@@ -1,5 +1,12 @@
+  @font-face {
+    font-family: 'Zen Dots';
+    src: url('./ZenDots-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
 * {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: 'Zen Dots', Helvetica, Arial, sans-serif;
     color: #d9d9d9;
   }
   
@@ -8,17 +15,20 @@
   }
   
   nav {
-    display: grid;
-    grid-template-columns: 40% 60%;
+    display: flex;
+    flex-direction: column;
     background-color: #404040;
     border-radius: 15px;
     padding: 10px;
     align-items: center;
+    width: max-content;
+    position: fixed;
+    z-index: 2;
   }
   
   .nav-text {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
   }
   
   nav h3 {
@@ -28,46 +38,231 @@
     border-radius: 5px;
   }
   
-  nav h3:hover {
-    background-color: #006600;
-  }
-  
   .contact {
     text-align: right;
   }
   
-  section {
+  header {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     margin-top: 50px;
   }
 
-  img {
+  .my_img {
     height: 250px;
     border: 5px solid #404040;
     border-radius: 50%;
     cursor: pointer;
+    margin: 25px;
+    transition: background-color 0.3s ease 0.2s,
+                border 0.3s ease 0.2s,
+                border-radius 0.3s ease 0.2s;
   }
 
-  img:hover {
+  .my_img:hover {
     border: 5px solid #006600;
   }
 
   p {
-    width: 500px;
+    max-width: 500px;
+    width: 90%;
     height: fit-content;
     background-color: #404040;
     border-radius: 15px;
     padding: 50px;
     text-align: center;
+    margin: auto;
   }
 
   button {
     background-color: #404040;
+    font-weight: bold;
+    font-size: 1.0rem;
+    margin: 10px 10px;
     cursor: pointer;
+    border: 0px;
+    transition: background-color 0.3s ease 0.2s,
+                border-radius 0.3s ease 0.2s;
   }
 
   button:hover {
     background-color: #006600;
+    border-radius: 15px;
   }
+
+  h1 {
+    margin-top: 100px;
+    display:  block;
+    text-align: center;
+  }
+
+  .box {
+    max-width: 600px;
+    max-height: 300px;
+    width: 90%;
+    height: 90%;
+    background-color: #404040;
+    margin: 50px;
+    border-radius: 15px;
+    display: block;
+    transition: background-color 0.3s ease 0.2s,
+                color 0.3s ease 0.2s;
+  }
+
+  .main {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .box img {
+    max-width: 600px;
+    border-radius: 15px;
+    margin: 30px 30px 20px 30px;
+    transition: margin 0.3s ease 0.2s,
+                width 0.3s ease 0.2s;
+  }
+
+  .box img:hover {
+    width: 600px;
+    margin: 0;
+    padding: 0; 
+  }
+
+  .box:hover {
+    background-color: #006600;
+    color:#006600;
+  }
+
+  .box h3{
+    margin-top: 0px;
+    text-align: center;
+    transition: color 0.3s ease 0.2s;
+  }
+
+  .box:hover h3{
+    color:#006600;
+  }
+
+  footer {
+    height: 300px;
+    padding: 20px;
+    background-color: #404040;  
+    margin: 50px 0 0 0;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer h1 {
+    margin : 0;
+    position: relative;
+    top: 0;
+  }
+
+  footer p {
+    margin: 0;
+    position: relative;
+    top: 0;
+  }
+
+  .insta {
+    margin: 20px;
+    width: 40px;
+    height: 40px;
+    background-image: url("./insta.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-image 0.3s ease 0.2s;
+  }
+
+  .insta:hover{
+    background-image: url("./insta-color.png");
+  }
+  
+  textarea {
+    color: black
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  form button {
+    align-self: flex-end;
+    font-size: 1.2em;
+  }
+
+  #home, #projects, #contact {
+    transition: color 0.5s ease;
+  }
+
+
+
+/* --- Tablet (max-width: 992px) --- */
+@media (max-width: 992px) {
+    header {
+        margin-top: 100px;
+        padding: 0 20px;
+    }
+
+    p {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box {
+        width: 90%;
+        margin: 40px 0;
+    }
+
+    .my_img {
+        height: 220px;
+        margin: 20px;
+    }
+}
+
+/* --- Mobile (max-width: 767px) --- */
+@media (max-width: 767px) {
+    header {
+        margin-top: 80px;
+        padding: 0 10px;
+    }
+
+    .my_img {
+        height: 180px;
+        margin: 15px;
+    }
+
+    p {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .main {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .box {
+        width: 100%;
+        margin: 30px 0;
+    }
+
+    footer {
+        padding: 15px;
+    }
+
+    form {
+        width: 100%;
+    }
+}
